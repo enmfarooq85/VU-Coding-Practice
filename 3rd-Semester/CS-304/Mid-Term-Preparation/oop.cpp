@@ -168,3 +168,170 @@ Information Hiding.
 // Difference between concrete and abstract class?
 
 //  abstract classes cannot be instantiated and serve as blueprints for other classes, while concrete classes are fully implemented and can be used to create objects directly.
+
+// Lecture NO. 5:-
+
+// What is multiple inheritance?
+
+// Sometimes we want to reuse characteristics of more than one parent class, in that case we need to inherit a class from more than one classes.
+
+// Example:
+
+// Consider the example of an imaginary specie Mermaid used in fairy tales that lives in water having features both of a women as well as of a fish, In Object Oriented programming perspective Mermaid can be derived from two classes Women and Fish.
+
+// Coding implementation:
+
+#include "bits/stdc++.h"
+using namespace std;
+
+class Fish
+{
+public:
+    void swim()
+    {
+        cout << "Swimming: " << endl;
+    };
+};
+
+class Women
+{
+public:
+    void walk()
+    {
+        cout << "Walking: " << endl;
+    };
+};
+
+// Now, mermaid is taking characterstics from two classes named fish and women. This is called multiple inheritance.
+class Mermaid : public Women, public Fish
+{
+};
+
+int main()
+{
+    // now mermaid can walk and swim
+    Mermaid m1;
+    m1.swim();
+    m1.walk();
+
+    return 0;
+}
+
+// Advantage of implementing multiple inheritance:
+
+// Reduce redundancy
+
+// Disadvantages of implementing multiple inheritance:
+
+// • Increased complexity
+// • Reduce undderstanding
+// • Duplicate feature
+
+// Multiple inheritance arise ambiguity and classic diamond problem. Please see code from internet.
+
+// What is assoication?
+
+// Interaction of different objects in OO model (or in problem domain) is known as association.
+
+// Kind of Association:
+
+// 1. Class association
+// 2. Object Association
+
+// What is class association?
+
+// Class association is implemented in terms of Inheritance. Inheritance implements generalization/specialization relationship between objects. Inheritance is considered class association.
+
+// What is object association?
+
+// It is the interaction of stand alone objects of one class with other objects of another class.
+
+// It can be of one of the following types.
+
+// • Simple Association
+// • Composition
+// • Aggregation
+
+// What is simple association?
+
+// The two interacting objects have no intrinsic relationship with other object. It is the weakest link between objects. It is a reference by which one object can interact with some other object.
+
+// Example:
+
+// Customer gets cash from cashier.
+// Employee works for a company.
+// Ali lives in a house.
+// Ali drives a car.
+
+// Kinds of simple association:
+
+// With respect to direction (Navigation)
+// With respect to number of objects (Cardinality)
+
+// Kind of simple association with respect to Navigation
+
+// One way Association
+// Two way Association
+
+// What is one way association?
+
+// In One way association we can navigate along a single direction only, it is denoted by an arrow towards the server object.
+
+// What is two way association?
+
+// In two way association we can navigate in both directions, it is denoted by a line between the associated objects.
+
+// Kind of simple association with respect to cardinality:
+
+// Binary Association
+// Ternary Association
+// N-array Association
+
+// What is binary association?
+
+// It associates objects of exactly two classes; it is denoted by a line, or an arrow between the associated objects.
+
+// What is Ternary association?
+
+// It associates objects of exactly three classes; it is denoted by a diamond with lines connected to associated objects.
+
+// What is N-ary association?
+
+// An association between 3 or more classes its practical examples are very rare.
+
+// What is composition?
+
+// An object may be composed of other smaller objects, the relationship between the “part” objects and the “whole” object is known as Composition, Composition is represented by a line with a filled-diamond head towards the composer object.
+
+// Composition is stronger relationship:
+
+// Composition is a stronger relationship, because
+// Composed object becomes a part of the composer
+// Composed object can’t exist independently
+
+// What is Aggregation?
+
+// An object may contain a collection (aggregate) of other objects, the relationship between the container and the contained object is called aggregation, Aggregation is represented by a line with unfilled-diamond head towards the container.
+
+// Aggregation is weaker relationship:
+
+// • Aggregate object is not a part of the container
+// • Aggregate object can exist independently
+
+// Lecture No. 6:-
+
+// What is class compatible?
+
+// A class is behaviorally compatible with another if it supports all the operations of the other class. Such a class is called subtype. A class can be replaced by its subtype.
+
+// What is Polymorphism?
+
+// In general, polymorphism refers to existence of different forms of a single entity.
+
+// Example:
+
+// both Diamond and Coal are different forms of Carbon.
+
+// What is Polymorphism in OO Model?
+
+// In OO model, polymorphism means that different objects can behave in different ways for the same message (stimulus). Consequently, sender of a message does not need to know exact class of the receiver. Sender sends message to receiver and appropriate method is called on receiver side.
