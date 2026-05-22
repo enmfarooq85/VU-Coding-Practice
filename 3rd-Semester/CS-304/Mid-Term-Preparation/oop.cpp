@@ -105,3 +105,66 @@ it is closer to real life.
 Information Hiding.
 • Objects communicate with each other using messages.
 */
+
+// Lecture NO. 3:-
+
+// What is abstraction?
+
+// Abstraction is way to hide complex implementation details while exposing only the essential features of an object. Through this we able to simplify the things.
+
+// Example:
+
+// Think of a coffee machine. You only need to know how to press the "Brew" button and insert your coffee beans. You don't need to understand the internal valves, water heating elements, or electrical circuits. The complex mechanics are hidden, leaving a simple interface for you to use.
+
+// Class:
+
+// Class is a blueprint of the object. Like we have to consturct a house so we need map.
+
+// Example:
+
+// • Ahsan teaches mathematics
+// • Aamir teaches computer science
+// Each one is a teacher so we say these objects are instances of the Teacher class
+
+// Inheritance:
+
+// Inheritance is way to inherit the charactersics like in real life. In real life, a child inherit characterstics from the parent beside this he/she has own unique charactersics. In OOP, child class inherit characterstics from the parent class but children class has also its own unique characterstics.
+
+// Inheritance is a kind of realtionship.
+
+// Inheritance – Advantages
+// • Reuse
+// • Less redundancy
+// • Increased maintainability
+
+// Lecture NO. 4:-
+
+// What is generalization?
+
+//  In OO models, some classes may have common characteristics. We extract these features into a new class and inherit original classes from this new class.
+
+// What is subtyping?
+
+// Sub-typing means that derived class is behaviourally compatible with thebase class. Derived class has all the characteristics of base class plus some extra characteristics. Behaviourally compatible means that base class can be replaced by the derived class
+
+// Subtyping and generalization are related concepts, Subtyping (extension) and generalization is a way to look same thing in two ways.Sub typing is looking at things from Top to bottom whereas in generalization we look at things from bottom to top.
+
+// What is Specialization (Restriction)?
+
+// Specialization means that derived class is behaviourally incompatible with the base class. Behaviourally incompatibility means that base class can’t always be by the derived class. Derived class has some different of restricted characteristics than of base class.
+
+// What is overriding?
+
+// A class may need to override the default behaviour provided by its base class Derived class overrides the behaviour of its base class.
+
+// Reasons for overriding:
+
+// • Provide behaviour specific to a derived class (specialization)
+// • Extend the default behaviour (extension)
+// • Restrict the default behaviour (restriction)
+// • Improve performance
+// • It is used for the implementation of inheritance.
+
+// Difference between concrete and abstract class?
+
+//  abstract classes cannot be instantiated and serve as blueprints for other classes, while concrete classes are fully implemented and can be used to create objects directly.
