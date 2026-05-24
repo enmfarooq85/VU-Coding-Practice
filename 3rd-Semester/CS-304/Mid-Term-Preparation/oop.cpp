@@ -398,13 +398,15 @@ private:
 
 // Function defination outside the class:
 
-class Human2 {
-    private:
-    void print (){};
+class Human2
+{
+private:
+    void print() {};
 };
 
-void Human2::print(){
-        cout << "Hello from Human2 outside of the class: " << endl;
+void Human2::print()
+{
+    cout << "Hello from Human2 outside of the class: " << endl;
 }
 
 // What are inline functions?
@@ -415,14 +417,16 @@ void Human2::print(){
 // • Keyword ‘inline’ is used to request compiler to make a function inline.
 // • However using inline keyword with function doesn’t guarantee that function will definitely in inlined, it depends on the compiler if it finds it can make function inline it does so otherwise it ignores the keyword inline and treat the function as normal function.
 
-// Code 
+// Code
 
-inline int Area (int len, int height){
+inline int Area(int len, int height)
+{
     return len * height;
 }
 
-int main (){
-    cout << Area (3, 4) << endl; // 12  
+int main()
+{
+    cout << Area(3, 4) << endl; // 12
     return 0;
 }
 
@@ -449,39 +453,46 @@ int main (){
 
 // Code:
 
-class Hello {
-    public:
+class Hello
+{
+public:
     int i;
     // default constructor
-    Hello (){
+    Hello()
+    {
         i = 0;
     };
     // parameterized constructor
-    Hello (int i){
+    Hello(int i)
+    {
         this->i = i;
     }
 
     // overloading constructor
     // with two parameters
-    Hello (int i, string name){
+    Hello(int i, string name)
+    {
         this->i = i;
         cout << name << endl;
     }
-    
+
     // with three parameters
-    Hello (int i, string name, string fatherName){
+    Hello(int i, string name, string fatherName)
+    {
         this->i = i;
         cout << name << fatherName << endl;
     }
 
     // Copy Constructor
 
-    Hello(const Hello &old){
+    Hello(const Hello &old)
+    {
         this->i = old.i;
     };
 };
 
-int main (){
+int main()
+{
     Hello h1;
     Hello h2 = h1;
     return 0;
@@ -489,3 +500,48 @@ int main (){
 
 // While copying shallow and deep copy concept comes in. Please understand it.
 
+// Lecture NO. 09:-
+
+// Copy constructor:
+
+// 09.3. Important points about copy constructor:
+// 1. In case our class doesn’t involve dynamic memory then default copy constructor that performs shallow copy works fine.
+// 2. In case our class has any data member involving dynamic memory we have to write our own code in copy constructor to perform deep copy.
+// 3. Copy constructor is normally used to perform deep copy
+// 4. If we do not make a copy constructor then the compiler performs shallow copy
+// 5. Shallow copy performs bitwise copy.
+
+// What is Desctructor?
+
+// 1. Destructor is used to free memory that is allocated through dynamicallocation. We have to free memory allocated using new operator by over self in destructor otherwise it remain occupied even after our program ends.
+// 2. Destructor is used to perform house keeping operations.
+// 3. Destructor is a function with the same name as that of class, but preceded with a tilde ‘~’.
+
+class Hello1
+{
+public:
+    ~Hello1()
+    {
+        cout << "I am destructor: " << endl;
+    };
+};
+
+// Destructors cannot be overloaded.
+
+// Sequence of Calls:
+
+// Constructors and destructors are called automatically
+/// Constructors are called in the sequence in which object is declared
+// Destructors are called in reverse order
+
+// What are accessor function?
+
+// In accordance to principle of information hiding data members of a class are declared as private so that outside world can not access the private data of the object only an interface is provided to outside world in the form of functions.
+// Accessor functions are also used to access private data of the object, we provide accessor functions to get and set private data members of the class. We also add error checking code in accessor functions to reduce errors so that object doesn’t move in illegal state.
+
+// What is 'this pointer' ?
+
+// • Function space is common for every variable
+// • Whenever a new object is created:
+//  o Memory is reserved for variables only
+//  o Previously defined functions are used over and over again
