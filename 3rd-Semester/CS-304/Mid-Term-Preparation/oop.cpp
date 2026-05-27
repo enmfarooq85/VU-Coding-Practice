@@ -545,3 +545,24 @@ public:
 // • Whenever a new object is created:
 //  o Memory is reserved for variables only
 //  o Previously defined functions are used over and over again
+
+// Lecture No. 10:-
+
+// Uses of this Pointer:
+
+// There are situations where designer wants to return reference to current object from a function
+//  In such cases reference is taken from this pointer like (*this)
+
+// Separation of interface and implementation:
+
+// Public member functions exposed by a class are called interface.
+// Separation of implementation from the interface is good software engineering.
+
+// Advantages:
+
+// User is only concerned about ways of accessing data (interface)
+// User has no concern about the internal representation and implementation of the class
+
+// const member function
+
+// Some functions in our programs are general purpose functions to show or access data, they are supposed to do read only tasks only however there are chances that they can change the state of data members of the class while accessing the data members due to programming mistake, c++ provides the solution of this problem using constant member functions.
