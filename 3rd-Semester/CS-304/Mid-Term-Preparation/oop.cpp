@@ -566,3 +566,62 @@ public:
 // const member function
 
 // Some functions in our programs are general purpose functions to show or access data, they are supposed to do read only tasks only however there are chances that they can change the state of data members of the class while accessing the data members due to programming mistake, c++ provides the solution of this problem using constant member functions.
+
+// Note:- Skipping to write the Lecture No. 11 and 12 here. I have studied them but don't have enough time to write here.
+
+// Lecture No. 13:-
+
+// Pointer to Objects:
+
+// • Pointer to objects are similar as pointer to built-in types
+// • They can also be used to dynamically allocate objects
+
+// Code Implementation:
+
+class Student
+{
+private:
+    int rollNo;
+
+public:
+    Student()
+    {
+        rollNo = 0;
+    };
+    Student(int aName) {
+    };
+    void setRollNo(int aNo)
+    {
+        this->rollNo = aNo;
+    };
+};
+
+int main()
+{
+    Student obj;
+    Student *ptr;
+    ptr = &obj;
+    ptr->setRollNo(10);
+    return 0;
+}
+
+// new operator is also used to creat object at runtime
+
+// Create a class Date to set, get the date, add month, year, etcc. See the lectrue no. 13 from handouts.
+
+// Lecture NO. 14:-
+
+// Composition:
+
+// If one object is part of another object (relationship of part and whole) in composition lifetime of one object depends upon the other. The part objects are essential components of the whole. For example person is composed of hands, eyes, feet so on.
+
+// In C++ “it is all about code reuse”
+// Composition is Creating objects of one class inside another class
+// “Has a” relationship:
+
+// Example:-
+
+// Bird has a beak
+// Student has a name
+
+// Just study composition, constructors, desctructors and composed objects concept.
