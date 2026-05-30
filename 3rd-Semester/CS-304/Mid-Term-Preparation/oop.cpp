@@ -625,3 +625,403 @@ int main()
 // Student has a name
 
 // Just study composition, constructors, desctructors and composed objects concept.
+
+// Lecture No. 15:-
+
+// Implementation of composition in cpp:
+
+// composition using direct objects
+
+class Engine
+{
+public:
+    void start()
+    {
+        cout << "Engine started..." << endl;
+    };
+};
+
+// Here:
+// things created automatically
+// things destroyed automatically
+// strong ownership
+
+// composition using poinet
+
+class Car
+{
+private:
+    Engine engine; // composition
+public:
+    void drive()
+    {
+        engine.start();
+        cout << "Car is moving" << endl;
+    };
+};
+
+class Engine1
+{
+public:
+    void start()
+    {
+        cout << "Engine is started." << endl;
+    };
+};
+
+class Car1
+{
+private:
+    Engine1 *engine1;
+
+public:
+    Car1()
+    {
+        engine1 = new Engine1();
+    }
+
+    void drive()
+    {
+        engine1->start();
+    }
+
+    ~Car1()
+    {
+        delete engine1;
+    }
+};
+
+// Here:
+// sometimes, static object creation don't have worth, so we create object dynamically throuhg pointers.
+
+// using constructor injuction
+
+class Engine2
+{
+    void start()
+    {
+        cout << "Enginer started." << endl;
+    }
+};
+
+class Car2
+{
+private:
+    Engine2 *engine2;
+
+public:
+    Car2(Engine2 *e)
+    {
+        engine2 = e;
+    };
+
+    void drive()
+    {
+        cout << "Car started." << endl;
+    }
+};
+
+// Here:
+// Engine object separately created as well as we will pass this object by reference to the car object.
+
+// multiple object composition
+
+class Wheel
+{
+};
+
+class Car
+{
+private:
+    Wheel w1;
+    Wheel w2;
+    Wheel w3;
+};
+
+// Here:
+// Now, the car has four wheels.
+
+// Array of objects:
+
+class Room
+{
+};
+
+class House
+{
+private:
+    Room arr[6];
+};
+
+// Remember the rule:
+// Member and parent objects are executed in order while constructing.
+// Parent and member objects are executed in order while deconstructing.
+
+// Implementation of aggregation:
+
+// Both composition and aggregation "HAS-A relationship" but aggregation with weak relationship. In aggregation contained object can exist independently.
+
+// using pointers
+
+class Student2
+{
+public:
+    string name;
+    Student2(string name)
+    {
+        this->name = name;
+    }
+
+    void show()
+    {
+        cout << name << endl;
+    }
+};
+
+class University
+{
+private:
+    Student2 *student;
+
+public:
+    University(Student2 *st)
+    {
+        student = st;
+    };
+
+    void displayStudent()
+    {
+        student->show();
+    };
+};
+
+// using reference
+
+class University2
+{
+private:
+    Student2 &student;
+
+public:
+    University2(Student2 &st) : student(st)
+    {
+        student = st;
+    };
+};
+
+// Implementation of association:
+
+// association is just a simple relation where two classes are related to each other like student and teacher. Both classes can exist independently.
+
+class Doctor
+{
+public:
+    string name;
+    Doctor(string name)
+    {
+        this->name = name;
+    }
+};
+
+class Patient
+{
+private:
+    string name;
+
+public:
+    Patient(string name)
+    {
+        this->name = name;
+    };
+    void manage(Doctor &dt)
+    {
+        cout << name;
+        cout << "goes to " << dt.name << "everyday." << endl;
+    };
+};
+
+int main()
+{
+    Patient p1("Azam");
+    Doctor d1("Muhammad Farooq");
+
+    p1.manage(d1);
+    return 0;
+}
+
+// friend functions:
+
+// It is a function which is not a member of a class, but still access the private and protected data of the class.
+
+// Make sure to not define the friend function inside the class.
+
+class Test
+{
+private:
+    int x;
+
+public:
+    Test()
+    {
+        this->x = 100;
+    }
+
+    friend void show(Test obj);
+};
+
+void show(Test obj)
+{
+    cout << obj.x << endl;
+};
+
+// Lecture No. 16:-
+
+// Operator overloading:
+
+// How we will perform the addition between two complex objects without overloading the operator?
+
+class Complex
+{
+private:
+    int real;
+    int img;
+
+public:
+    Complex add(const Complex &c)
+    {
+        Complex c1;
+        c1.real = real + c.real;
+        c1.img = img + c.img;
+        return c1;
+    }
+};
+
+int main()
+{
+    Complex c2;
+    Complex c1;
+    Complex c = c1.add(c2);
+    return 0;
+}
+
+// but we can't use c1 + c2 operator like we do to add two integers (2 + 3). So, here we will overload the plus operator to accept user defined types.
+
+// Lecture No. 16:-
+
+// Binary operator:
+
+// The binary operator is always called with reference to the left hand argument.
+
+class Test5
+{
+private:
+    int x;
+
+public:
+    Test5(int value = 0)
+    {
+        x = value;
+    }
+
+    Test5 operator+(const Test5 &obj)
+    {
+        Test5 temp;
+
+        temp.x = x + obj.x;
+
+        return temp;
+    }
+
+    void display()
+    {
+        cout << x << endl;
+    }
+};
+
+int main()
+{
+    Test5 b(20);
+    Test5 a(10);
+
+    Test5 c = a + b;
+
+    c.display();
+}
+
+// Lecture No. 17:-
+
+// assignment operator overloading
+class Class1
+{
+public:
+    string name;
+    Class1(string name)
+    {
+        this->name = name;
+    }
+
+    Class1 operator=(Class1 obj)
+    {
+        obj.name = name;
+        return obj;
+    };
+};
+
+int main()
+{
+    Class1 c1("Muhammad"), c2("Khan");
+    Class1 c3 = c1 = c2;
+    cout << c3.name << endl;
+
+    return 0;
+}
+
+// Lecture No. 18:-
+
+// Self Assignment problem:
+
+// Self-assignment happens when an object is assigned to itself. 
+
+class Test6
+{
+private:
+    int *ptr;
+
+public:
+    Test6(int value)
+    {
+        ptr = new int(value);
+    }
+
+    Test6 &operator=(const Test6 &obj)
+    {
+        delete ptr; // Delete current memory
+
+        ptr = new int(*obj.ptr); // Copy value
+
+        return *this;
+    }
+
+    void display()
+    {
+        cout << *ptr << endl;
+    }
+
+    ~Test6()
+    {
+        delete ptr;
+    }
+};
+
+int main()
+{
+    Test6 t1(100);
+
+    t1 = t1; // Self-assignment
+
+    t1.display();
+
+    return 0;
+}
+
+// solution to this problem is to just check if addresses are same, then do not assign.
