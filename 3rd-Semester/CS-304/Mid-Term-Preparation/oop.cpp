@@ -1025,3 +1025,19 @@ int main()
 }
 
 // solution to this problem is to just check if addresses are same, then do not assign.
+
+// Lecture No. 19:-
+
+// See task-1.cpp and task-2.cpp file
+
+// Make sure to write long code not short because in papers they will not provide you IDE.
+
+// Lecture No. 20:- 
+
+// See task-3.cpp & task-4.cpp file
+
+// Lecture No. 21:-
+
+// See task-5.cpp file
+
+// Good Luck!
