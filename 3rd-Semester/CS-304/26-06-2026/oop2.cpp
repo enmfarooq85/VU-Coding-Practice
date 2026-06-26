@@ -1,0 +1,1 @@
+// Please read type implementation of inheritance like public, private and protected inheritance from handhouts.
